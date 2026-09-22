@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#11100e">
+    <meta name="color-scheme" content="dark">
+
+    <title>Himanya — B.Tech IT Student &amp; Developer</title>
+    <meta name="description" content="Portfolio of Himanya, a second-year B.Tech Information Technology student at Banasthali Vidyapith who is learning, building projects and exploring AI and technology.">
+    <meta name="author" content="Himanya">
+
+    <!-- Open Graph / social preview.
+         After deploying, replace og:image and og:url with absolute URLs (https://your-domain/...). -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Himanya — B.Tech IT Student &amp; Developer">
+    <meta property="og:description" content="A student developer who is learning, building and exploring technology.">
+    <meta property="og:image" content="assets/og-image.png">
+    <meta property="og:url" content="YOUR_DEPLOYED_SITE_URL_HERE">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Icons (Font Awesome Free) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <noscript>
+        <style>.loader{display:none!important}</style>
+    </noscript>
+</head>
+<body>
+
+    <a class="skip-link" href="#about">Skip to content</a>
+
+    <!-- ============ LOADER ============ -->
+    <div class="loader" id="loader" role="status" aria-live="polite">
+        <div class="loader__inner">
+            <div class="loader__code" aria-hidden="true">
+                <div class="loader__line">const portfolio = {</div>
+                <div class="loader__line">&nbsp;&nbsp;owner: 'Himanya',</div>
+                <div class="loader__line">&nbsp;&nbsp;status: 'loading...'</div>
+                <div class="loader__line">};</div>
+            </div>
+            <p class="loader__label" id="loaderLabel">INITIALIZING...</p>
+            <div class="loader__track" aria-hidden="true"><div class="loader__bar" id="loaderBar"></div></div>
+            <p class="loader__percent" id="loaderPercent">0%</p>
+        </div>
+    </div>
+
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+    <!-- ============ HEADER / NAV ============ -->
+    <header class="site-header" id="header">
+        <nav class="nav" aria-label="Primary">
+            <a href="#home" class="brand" aria-label="Himanya — back to top">himanya<span>.</span></a>
+
+            <ul class="nav__links" id="navMenu">
+                <li><a class="nav__link is-active" href="#home" data-section="home">Home</a></li>
+                <li><a class="nav__link" href="#about" data-section="about">About</a></li>
+                <li><a class="nav__link" href="#education" data-section="education">Education</a></li>
+                <li><a class="nav__link" href="#skills" data-section="skills">Skills</a></li>
+                <li><a class="nav__link" href="#projects" data-section="projects">Projects</a></li>
+                <li><a class="nav__link" href="#experience" data-section="experience">Experience</a></li>
+                <li><a class="nav__link" href="#contact" data-section="contact">Contact</a></li>
+            </ul>
+
+            <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="navMenu" aria-label="Open menu">
+                <span></span><span></span><span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- ============ 1. HOME ============ -->
+        <section id="home" class="hero" aria-labelledby="hero-title">
+            <div class="hero__bg" aria-hidden="true">
+                <div class="hero__grid" id="heroGrid"></div>
+                <div class="hero__symbols" id="symbols"></div>
+            </div>
+
+            <div class="container hero__inner" id="heroInner">
+                <div class="hero__copy">
+                    <h1 class="hero__title" id="hero-title" aria-label="Hi, I'm Himanya">
+                        <span class="hero__hi" id="heroHi">Hi, I'm</span>
+                        <span class="hero__name" id="heroName">Himanya</span><span class="hero__caret" id="heroCaret" aria-hidden="true"></span>
+                    </h1>
+
+                    <!-- EDIT: hero role line -->
+                    <ul class="hero__role" aria-label="Role">
+                        <li>B.Tech IT Student</li>
+                        <li>Developer</li>
+                        <li>AI &amp; Technology Enthusiast</li>
+                    </ul>
+
+                    <!-- EDIT: hero intro -->
+                    <p class="hero__desc">
+                        A second-year IT student at Banasthali Vidyapith. I'm learning, building projects and exploring how technology&nbsp;— especially AI&nbsp;— can be put to use.
+                    </p>
+
+                    <div class="hero__actions">
+                        <a class="btn btn--primary" href="#projects">View projects <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                        <a class="btn btn--ghost" href="#contact">Contact me <i class="fa-regular fa-paper-plane" aria-hidden="true"></i></a>
+                    </div>
+
+                    <ul class="social-list" data-socials="hero" aria-label="Social links"></ul>
+                </div>
+
+                <div class="hero__visual" aria-hidden="true">
+                    <div class="hero__mark" data-parallax-layer="0.05">H</div>
+                    <div class="hero-badge hero-badge--1"><div class="hero-badge__inner">
+                        <span class="hero-badge__icon"><i class="fa-solid fa-seedling"></i></span>
+                        <span><strong>AgriShare</strong><small>Building with Next.js &amp; React</small></span>
+                    </div></div>
+                    <div class="hero-badge hero-badge--2"><div class="hero-badge__inner">
+                        <span class="hero-badge__icon"><i class="fa-solid fa-code"></i></span>
+                        <span><strong>C++ &amp; DSA</strong><small>Strengthening fundamentals</small></span>
+                    </div></div>
+                    <div class="hero-badge hero-badge--3"><div class="hero-badge__inner">
+                        <span class="hero-badge__icon"><i class="fa-solid fa-brain"></i></span>
+                        <span><strong>AI / ML</strong><small>Learning through projects</small></span>
+                    </div></div>
+                </div>
+            </div>
+
+            <a class="scroll-hint" href="#about" aria-label="Scroll down to About">
+                <span class="scroll-hint__mouse" aria-hidden="true"><span></span></span>
+                <span>Scroll</span>
+            </a>
+        </section>
+
+        <!-- Decorative band: drifts sideways as you scroll from Home into About -->
+        <div class="band" id="band" aria-hidden="true">
+            <div class="band__row" data-band="-1">
+                <span>Learning</span><i></i><span>Building</span><i></i><span>Exploring</span><i></i><span>Learning</span><i></i><span>Building</span><i></i><span>Exploring</span><i></i><span>Learning</span><i></i><span>Building</span>
+            </div>
+            <div class="band__row band__row--outline" data-band="1">
+                <span>C++</span><i></i><span>Web</span><i></i><span>DSA</span><i></i><span>AI</span><i></i><span>SQL</span><i></i><span>C++</span><i></i><span>Web</span><i></i><span>DSA</span><i></i><span>AI</span><i></i><span>SQL</span>
+            </div>
+        </div>
+
+        <!-- ============ 2. ABOUT ============ -->
+        <section id="about" class="section section--alt about" aria-labelledby="about-title">
+            <div class="container about__grid">
+
+                <figure class="about__photo reveal" data-anim="left">
+                    <div class="photo-frame" id="photoFrame">
+                        <div class="photo-frame__media" data-parallax="0.07">
+                            <!-- REPLACE: put your photo at assets/himanya.jpg -->
+                            <img id="profilePhoto" src="assets/himanya.jpg" alt="Portrait of Himanya" width="800" height="1000" decoding="async">
+                        </div>
+                        <div class="photo-placeholder">
+                            <span class="photo-placeholder__letter" aria-hidden="true">H</span>
+                            <span>Add your photo at<br><code>assets/himanya.jpg</code></span>
+                        </div>
+                    </div>
+                </figure>
+
+                <div class="about__copy">
+                    <h2 class="section__title" id="about-title" data-mask>About me</h2>
+
+                    <!-- EDIT: about copy -->
+                    <div class="about__text reveal">
+                        <p><strong>Who I am.</strong> I'm Himanya, a B.Tech IT student at Banasthali Vidyapith, currently in my second year. I enjoy turning ideas into actual working projects &mdash; I learn best by building, breaking things, and figuring out how they work from the inside out.</p>
+                        <p><strong>What I enjoy building.</strong> Things at the intersection of utility and creativity: web apps that solve real problems, AI experiments that feel playful, and systems that work cleanly. I enjoy the full loop &mdash; idea, build, break, fix, ship. Right now that means strengthening my DSA and problem-solving foundation while getting hands-on with AI/ML, alongside an internship at Onyatrips.</p>
+                    </div>
+
+                    <div class="facts-block reveal">
+                        <p class="facts-block__label">Interests</p>
+                        <ul class="tags tags--lg">
+                            <li>Software Dev</li><li>Web Dev</li><li>AI / ML</li><li>DSA</li><li>Open Source</li><li>Creative Tech</li>
+                        </ul>
+                    </div>
+
+                    <div class="facts-block reveal">
+                        <p class="facts-block__label">Current goals</p>
+                        <ul class="goal-list">
+                            <li>Build a strong DSA + problem-solving foundation</li>
+                            <li>Deepen AI/ML knowledge through hands-on projects</li>
+                            <li>Contribute to open source</li>
+                            <li>Land an internship where I can keep growing</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ 3. EDUCATION ============ -->
+        <section id="education" class="section education" aria-labelledby="education-title">
+            <div class="container">
+                <header class="section__head">
+                    <h2 class="section__title" id="education-title" data-mask>Education</h2>
+                    <p class="section__lead reveal">Where I'm studying, and what I'm learning alongside it.</p>
+                </header>
+                <ol class="timeline" id="educationTimeline"></ol>
+            </div>
+        </section>
+
+        <!-- ============ 4. SKILLS ============ -->
+        <section id="skills" class="section section--olive skills" aria-labelledby="skills-title">
+            <div class="container">
+                <header class="section__head">
+                    <h2 class="section__title" id="skills-title" data-mask>Skills</h2>
+                    <p class="section__lead reveal">Technologies I work with and the ones I'm still getting better at, grouped by what I use them for. Swipe or use the arrows to browse.</p>
+                </header>
+
+                <div class="carousel reveal" id="skillsCarousel" role="region" aria-roledescription="carousel" aria-label="Skills by category">
+                    <div class="carousel__track" id="skillsGrid" tabindex="0"></div>
+                    <div class="carousel__controls">
+                        <button class="carousel__btn" type="button" data-dir="-1" aria-label="Previous skills"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i></button>
+                        <div class="carousel__progress" aria-hidden="true"><div class="carousel__bar"></div></div>
+                        <span class="carousel__count" aria-live="polite"></span>
+                        <button class="carousel__btn" type="button" data-dir="1" aria-label="Next skills"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ 5. PROJECTS ============ -->
+        <section id="projects" class="section projects" aria-labelledby="projects-title">
+            <div class="container">
+                <header class="section__head">
+                    <h2 class="section__title" id="projects-title" data-mask>Projects</h2>
+                    <p class="section__lead reveal">Things I've built while learning. Swipe, drag or use the arrows to move between them.</p>
+                </header>
+
+                <div class="carousel reveal" id="projectsCarousel" role="region" aria-roledescription="carousel" aria-label="Projects">
+                    <div class="carousel__track" id="projectsGrid" tabindex="0"></div>
+                    <div class="carousel__controls">
+                        <button class="carousel__btn" type="button" data-dir="-1" aria-label="Previous project"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i></button>
+                        <div class="carousel__progress" aria-hidden="true"><div class="carousel__bar"></div></div>
+                        <span class="carousel__count" aria-live="polite"></span>
+                        <button class="carousel__btn" type="button" data-dir="1" aria-label="Next project"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ 6. EXPERIENCE ============ -->
+        <section id="experience" class="section section--alt experience" aria-labelledby="experience-title">
+            <div class="container">
+                <header class="section__head">
+                    <h2 class="section__title" id="experience-title" data-mask>Experience</h2>
+                    <p class="section__lead reveal">Practical, student-level experience alongside my studies.</p>
+                </header>
+                <ol class="timeline" id="experienceTimeline"></ol>
+            </div>
+        </section>
+
+        <!-- ============ 7. CONTACT ============ -->
+        <section id="contact" class="section section--olive contact" aria-labelledby="contact-title">
+            <div class="container contact__grid">
+                <div class="contact__intro">
+                    <h2 class="section__title" id="contact-title" data-mask>Let's connect</h2>
+                    <p class="section__lead reveal">Whether it's an internship, a project idea, or a question about something I've built, I'd like to hear from you.</p>
+                    <ul class="contact-cards reveal" data-socials="contact" aria-label="Ways to reach me"></ul>
+                </div>
+
+                <form class="card contact-form reveal" id="contactForm" novalidate>
+                    <div class="form-row">
+                        <div class="field">
+                            <label for="cf-name">Name</label>
+                            <input id="cf-name" name="name" type="text" autocomplete="name" required aria-describedby="cf-name-err">
+                            <p class="field__error" id="cf-name-err"></p>
+                        </div>
+                        <div class="field">
+                            <label for="cf-email">Email</label>
+                            <input id="cf-email" name="email" type="email" autocomplete="email" required aria-describedby="cf-email-err">
+                            <p class="field__error" id="cf-email-err"></p>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="field">
+                            <label for="cf-org">Organization / Work <span class="optional">(optional)</span></label>
+                            <input id="cf-org" name="organization" type="text" autocomplete="organization" aria-describedby="cf-org-err">
+                            <p class="field__error" id="cf-org-err"></p>
+                        </div>
+                        <div class="field">
+                            <label for="cf-subject">Subject</label>
+                            <input id="cf-subject" name="subject" type="text" required aria-describedby="cf-subject-err">
+                            <p class="field__error" id="cf-subject-err"></p>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label for="cf-message">Message</label>
+                        <textarea id="cf-message" name="message" rows="6" required aria-describedby="cf-message-err"></textarea>
+                        <p class="field__error" id="cf-message-err"></p>
+                    </div>
+
+                    <!-- Honeypot for spam bots (used by Formspree-style services). Leave empty. -->
+                    <input class="visually-hidden" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+                    <div class="form-foot">
+                        <button class="btn btn--primary" type="submit"><span>Send message</span> <i class="fa-regular fa-paper-plane" aria-hidden="true"></i></button>
+                        <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="site-footer">
+        <div class="container footer__inner">
+            <div>
+                <p class="footer__name">Himanya</p>
+                <p class="footer__role">B.Tech IT Student &bull; Developer</p>
+            </div>
+            <ul class="social-list social-list--sm" data-socials="footer" aria-label="Social links"></ul>
+            <p class="footer__copy">&copy; <span id="year">2026</span> Himanya</p>
+        </div>
+    </footer>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <!-- Anime.js (animation engine). The site still works if this fails to load. -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" crossorigin="anonymous"></script>
+
+    <script src="js/data.js"></script>
+    <script src="js/render.js"></script>
+    <script src="js/carousel.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
