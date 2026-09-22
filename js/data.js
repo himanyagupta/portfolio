@@ -168,7 +168,7 @@ window.PORTFOLIO = {
             context: "",
             role: "",
            
-            description: "A ATM simulation that walks through the core banking actions an ATM offers.",
+            description: "An ATM simulation that walks through the core banking actions an ATM offers.",
             features: [
                 "Account access",
                 "Balance inquiry",
