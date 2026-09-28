@@ -185,8 +185,14 @@
         if (!track) return;
 
         (D.projects || []).forEach((p) => {
-            const media = h('div', { class: 'project__media' }, [
+            const media = h('div', {
+                class: 'project__media',
+                role: 'button',
+                tabindex: '0',
+                'aria-label': 'View full-size screenshot of ' + p.title
+            }, [
                 h('img', { src: p.image, alt: p.imageAlt || (p.title + ' screenshot'), loading: 'lazy', decoding: 'async', width: '1200', height: '750' }),
+                h('span', { class: 'project__zoom-hint' }, [icon('fa-solid fa-magnifying-glass-plus')]),
                 h('div', { class: 'project__placeholder' }, [
                     icon(p.placeholderIcon || 'fa-solid fa-image'),
                     h('span', { text: p.title }),

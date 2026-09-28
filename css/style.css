@@ -838,16 +838,50 @@ body.menu-open .site-header {
 .project { display: flex; flex-direction: column; overflow: hidden; transition: border-color .3s, box-shadow .4s; }
 .project:hover { border-color: var(--line-2); box-shadow: 0 26px 60px -30px rgba(0, 0, 0, .9); }
 
-.project__media { position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: var(--bg-deep); border-bottom: 1px solid var(--line); }
+.project__media {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background: var(--bg-deep);
+    border-bottom: 1px solid var(--line);
+    cursor: zoom-in;
+}
 .project__media img {
     width: 100%; height: 100%;
-    object-fit: cover;
-    /* --p is set by the carousel: the image drifts slower than its slide */
-    translate: calc(var(--p, 0) * -7%) 0;
-    scale: 1.12;
-    transition: scale .8s var(--ease);
+    /* Show the whole screenshot, never crop it */
+    object-fit: contain;
+    object-position: center;
+    padding: .6rem;
+    transition: transform .5s var(--ease), filter .4s;
 }
-.project:hover .project__media img { scale: 1.18; }
+.project:hover .project__media img,
+.project__media:focus-visible img { transform: scale(1.03); filter: brightness(1.05); }
+
+.project__zoom-hint {
+    position: absolute;
+    right: .85rem; bottom: .85rem;
+    display: grid;
+    place-items: center;
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    background: rgba(17, 16, 14, .78);
+    border: 1px solid var(--line-2);
+    color: var(--text);
+    font-size: .95rem;
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity .25s, transform .25s;
+    pointer-events: none;
+}
+.project__media:hover .project__zoom-hint,
+.project__media:focus-visible .project__zoom-hint { opacity: 1; transform: none; }
+/* Always show the hint on touch devices, where hover doesn't exist */
+@media (hover: none) {
+    .project__zoom-hint { opacity: 1; transform: none; background: rgba(17, 16, 14, .88); }
+}
+.project__media.is-empty { cursor: default; }
+.project__media.is-empty .project__zoom-hint { display: none; }
+
 .project__placeholder {
     position: absolute;
     inset: 0;
@@ -1025,7 +1059,66 @@ body.menu-open .site-header {
     }
     .hero__inner, .section > .container { opacity: 1 !important; transform: none !important; }
     .carousel__slide--project { opacity: 1 !important; scale: 1 !important; }
-    .project__media img { translate: 0 0 !important; }
+    .project__media img { transform: none !important; }
     .photo-frame__media { transform: none !important; }
     .band__row { transform: none !important; }
 }
+
+/* ==========================================================================
+   Lightbox — full-size project image viewer
+   ========================================================================== */
+.lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 2500;
+    display: grid;
+    place-items: center;
+    padding: 4.5rem 1.5rem 1.5rem;
+    background: rgba(8, 7, 6, .92);
+    backdrop-filter: blur(4px);
+    opacity: 0;
+    transition: opacity .25s ease;
+}
+.lightbox.is-open { opacity: 1; }
+.lightbox__img {
+    max-width: min(94vw, 1200px);
+    max-height: 84vh;
+    width: auto; height: auto;
+    object-fit: contain;
+    border-radius: var(--r-md);
+    background: var(--bg-deep);
+    border: 1px solid var(--line-2);
+    box-shadow: 0 40px 90px -30px rgba(0, 0, 0, .8);
+    transform: scale(.97);
+    transition: transform .25s ease;
+}
+.lightbox.is-open .lightbox__img { transform: scale(1); }
+.lightbox__caption {
+    position: absolute;
+    left: 0; right: 0; bottom: 1.4rem;
+    text-align: center;
+    color: var(--text-2);
+    font-size: .9rem;
+    padding: 0 1rem;
+}
+.lightbox__close {
+    position: absolute;
+    top: 1.1rem; right: 1.1rem;
+    display: grid;
+    place-items: center;
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: var(--card);
+    border: 1px solid var(--line-2);
+    color: var(--text);
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: border-color .25s, transform .25s var(--ease);
+}
+.lightbox__close:hover { border-color: var(--olive); transform: scale(1.06); }
+body.lightbox-open { overflow: hidden; }
+
+@media (prefers-reduced-motion: reduce) {
+    .lightbox, .lightbox__img { transition-duration: .001ms !important; }
+}
+

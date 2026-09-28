@@ -320,6 +320,15 @@
 
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
+    <!-- Full-size project image viewer -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Project image, full size" hidden>
+        <button class="lightbox__close" id="lightboxClose" type="button" aria-label="Close full-size image">
+            <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        </button>
+        <img class="lightbox__img" id="lightboxImg" src="" alt="">
+        <p class="lightbox__caption" id="lightboxCaption"></p>
+    </div>
+
     <!-- Anime.js (animation engine). The site still works if this fails to load. -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" crossorigin="anonymous"></script>
 

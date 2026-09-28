@@ -47,6 +47,61 @@
         $$('.project__media').forEach((m) => bindFallback($('img', m), m));
     }
 
+    /* ---------- Lightbox: click/tap a project screenshot to view it full size ---------- */
+    function initLightbox() {
+        const lb = $('#lightbox');
+        const img = $('#lightboxImg');
+        const caption = $('#lightboxCaption');
+        const closeBtn = $('#lightboxClose');
+        if (!lb || !img || !closeBtn) return;
+
+        let lastFocused = null;
+        let closeTimer = null;
+
+        function open(src, alt, title) {
+            clearTimeout(closeTimer);
+            img.src = src;
+            img.alt = alt || '';
+            caption.textContent = title || '';
+            lb.hidden = false;
+            lastFocused = document.activeElement;
+            document.body.classList.add('lightbox-open');
+            requestAnimationFrame(() => {
+                lb.classList.add('is-open');
+                closeBtn.focus();
+            });
+        }
+
+        function close() {
+            lb.classList.remove('is-open');
+            document.body.classList.remove('lightbox-open');
+            closeTimer = setTimeout(() => { lb.hidden = true; img.src = ''; }, reduceMotion ? 0 : 260);
+            if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
+        }
+
+        function fromMedia(media) {
+            if (!media || media.classList.contains('is-empty')) return;
+            const pic = $('img', media);
+            if (!pic || !pic.currentSrc && !pic.src) return;
+            const card = media.closest('.project');
+            const title = card ? $('.project__title', card)?.textContent : '';
+            open(pic.currentSrc || pic.src, pic.alt, title);
+        }
+
+        document.addEventListener('click', (e) => {
+            const media = e.target.closest('.project__media');
+            if (media) { fromMedia(media); return; }
+            if (!lb.hidden && (e.target === lb || e.target.closest('#lightboxClose'))) close();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (!lb.hidden && e.key === 'Escape') { close(); return; }
+            if (e.key !== 'Enter' && e.key !== ' ') return;
+            const media = e.target.closest && e.target.closest('.project__media');
+            if (media) { e.preventDefault(); fromMedia(media); }
+        });
+    }
+
     /* ---------- Navigation ---------- */
     const header = $('#header');
     const menu = $('#navMenu');
@@ -250,6 +305,7 @@
 
         safe(() => window.PortfolioRender.all(), 'render');
         safe(initImages, 'images');
+        safe(initLightbox, 'lightbox');
         safe(initPlaceholderLinks, 'placeholder links');
         safe(initMenu, 'menu');
         safe(initNav, 'nav');

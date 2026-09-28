@@ -107,7 +107,7 @@
         track.addEventListener('dragstart', (e) => e.preventDefault());
         track.addEventListener('pointerdown', (e) => {
             if (e.pointerType !== 'mouse' || e.button !== 0) return;
-            if (e.target.closest('a, button, input, textarea')) return;
+            if (e.target.closest('a, button, input, textarea, .project__media')) return;
             down = true; moved = false; startX = e.clientX; startLeft = track.scrollLeft;
         });
         window.addEventListener('pointermove', (e) => {
