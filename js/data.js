@@ -206,7 +206,7 @@ window.PORTFOLIO = {
             current: true,
             role: "App Development Intern",
             org: "Onyatrips",
-            summary: "A student internship on the app side, where I've been doing QA and testing work around the Companion app.",
+            summary: "A student internship on the app side, where I've been doing QA,testing and working on flutter around the Companion app.",
             points: [
                 "Testing application flows",
                 "Validating valid, invalid and missing data",
