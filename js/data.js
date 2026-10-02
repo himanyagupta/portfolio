@@ -60,7 +60,7 @@ window.PORTFOLIO = {
             title: "B.Tech \u2014 Information Technology",
             org: "Banasthali Vidyapith",
             status: "Currently in 2nd year",
-            description: "Building a strong foundation in data structures and algorithms, alongside core CS coursework."
+            description: "Building a strong foundation in DSA, alongside core CS coursework."
         },
         {
             period: "Self-paced learning",
