@@ -2,7 +2,7 @@
 
 Welcome to my personal portfolio!!
 
-I'm **Himanya Gupta**, a B.Tech Information Technology student at **Banasthali Vidyapith**, currently exploring web development, programming, and software projectsand AI/ML.
+I'm **Himanya Gupta**, a B.Tech Information Technology student at **Banasthali Vidyapith**, currently exploring web development, programming, and software projects and AI/ML.
 
 This portfolio is a place where I showcase my projects, skills, experience, and things I'm currently learning.
 
